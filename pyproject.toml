@@ -1,0 +1,38 @@
+[project]
+name = "satgen"
+version = "0.1.0"
+description = "Modular, reproducible data generator that simulates how different satellites observe catastrophic events like wildfires."
+readme = "README.md"
+authors = [
+    { name = "joRost", email = "JoRost@users.noreply.github.com" },
+    { name = "Glitterrosie", email = "64656859+Glitterrosie@users.noreply.github.com"}
+]
+# Upper bound: propagator pins numba==0.62.1, which only ships wheels up to CPython 3.13.
+requires-python = ">=3.13,<3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14",
+    "pytest>=8.4",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "NPY", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"
