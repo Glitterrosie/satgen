@@ -13,9 +13,13 @@ dependencies = []
 
 [dependency-groups]
 dev = [
-    "ruff>=0.14",
-    "pytest>=8.4",
+    "ruff==0.17.3",
+    "pytest==9.2.0",
 ]
+
+[tool.uv]
+# `uv add` writes exact pins (==) instead of lower bounds.
+add-bounds = "exact"
 
 [build-system]
 requires = ["uv_build>=0.13.6,<0.14.0"]
